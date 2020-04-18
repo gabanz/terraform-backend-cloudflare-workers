@@ -1,5 +1,6 @@
 *.log
 node_modules
 .terraform
-
 private.tfbackend
+terraform.tfstate
+.DS_Store
