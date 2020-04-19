@@ -70,18 +70,20 @@ terraform {
 ```
 
 **Update:**
-You can also use secrets if you wish. In `index.js` change the hardcoded username and password to read values from environment variables.
-
-```sh
-const USERNAME = TF_BACKEND_USER;
-const PASSWORD = TF_BACKEND_PASSWD;
-```
+You can also use secrets if you wish. 
 
 Define the values of the secrets.
 
 ```sh
 wrangler secret put TF_BACKEND_USER
 wrangler secret put TF_BACKEND_PASSWD
+```
+
+In `index.js` change the hardcoded username and password to read values from the secrets.
+
+```sh
+const USERNAME = TF_BACKEND_USER;
+const PASSWORD = TF_BACKEND_PASSWD;
 ```
 
 Republish the changes.
