@@ -69,6 +69,26 @@ terraform {
 }
 ```
 
+**Update:**
+You can also use secrets if you wish. In `index.js` change the hardcoded username and password to read values from environment variables.
+
+```sh
+const USERNAME = TF_BACKEND_USER;
+const PASSWORD = TF_BACKEND_PASSWD;
+```
+
+Define the values of the secrets.
+
+```sh
+wrangler secret put TF_BACKEND_USER
+wrangler secret put TF_BACKEND_PASSWD
+```
+
+Republish the changes.
+```sh
+wrangler publish
+```
+
 **Caution:** Changing your credentials after running `terraform init` is not supported as it's not straightforward. If that's needed, try taking a copy of your state before changing your credentials, then uploading it after you make the change:
 ```sh
 # Before changing your credentials
